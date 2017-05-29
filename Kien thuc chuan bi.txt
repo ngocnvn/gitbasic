@@ -1,0 +1,18 @@
+﻿Hello all
+anh tạo group này cho dự án tele nhé
+hi anh, em có tổng hợp 1 số tài liệu & tutorial về React Native tại đây: https://github.com/ethan605/react-native-compilation
+Anh cho các bạn tìm hiểu trước giúp em nhé. Thứ tự sẽ là:
+
+1. Cài đặt Visual Studio Code & extensions
+2. Học về Git, Git Branching & Git Pull Request (đối với bạn nào chưa biết 3 cái này)
+3. Học & thực hành ES6
+4. Đọc trước về ESLint
+5. Đọc trước về Flux & Redux
+Đây là các tài liệu, step mà Thành đã chuẩn bị
+Các bạn Dev hôm nay xem nhé
+Chiều tối mai, Thành sẽ có một buổi training về RN cũng như project structure, development flow, ...
+
+
+github
+ngocnvn
+A...1
