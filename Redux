@@ -1,0 +1,68 @@
+REDUX JS LÀ GÌ
+
+common December 28, 2016 Leave a comment
+REDUX JS LÀ GÌ
+
+Redux js là một thư viện Javascript giúp tạo ra thành một lớp quản lý trạng thái của ứng dụng. Được dựa trên nền tảng tư tưởng của kiến trúc Flux do Facebook giới thiệu, do vậy Redux thường là bộ đôi kết hợp hoàn hảo với React (React Js và React Native). Redux cũng được đề cập đến trong bài Hướng dẫn học ReactJs, bạn nên đọc bài này trước nếu bạn muốn kết hợp Redux với Reactjs, mặc dù bạn có thể sử dụng Redux với Angular, Backbone, Ember…
+
+Nội dung chính
+
+Trạng thái (state) của ứng dụng là gì
+Vậy thì nó liên quan gì đến trạng thái của ứng dụng?
+Việc biết trạng thái này có quan trọng không?
+Các nguyên tắc cơ bản của Redux
+Nguồn dữ liệu tin cậy duy nhất
+Trạng thái là chỉ được phép đọc (read-only)
+Thay đổi chỉ bằng hàm thuần tuý
+Tính ứng dụng của Redux js là gì
+Sự khác biệt giữa Redux và Flux
+Kết
+Comments
+TRẠNG THÁI (STATE) CỦA ỨNG DỤNG LÀ GÌ
+
+Cùng lướt qua các ví dụ cho dễ:
+
+Ví dụ 1: Để hình dung đơn giản nhất, trạng thái của ứng dụng tương tự như cái nút Lui (Back)/Tới (Forward) lịch sử của trình duyệt của trình duyệt web. Bạn mở web nhấn vào vòng vòng một hồi, rồi nhấn quay lại các trang trước, mỗi trang như vậy còn được gọi là trạng thái. Nhưng, với các ứng dụng SPA (Single Page Application) thì chuyện Lui/Tới cũng là cả vấn đề rồi.
+
+Ví dụ 2: Không liên quan đến web nhưng rất điển hình đó là trạng thái của bàn cờ tướng hay cờ vua chẳng hạn. Mỗi khi người chơi đi một nước – trong thi đấu – họ phải ghi lại từng nước đi, bằng cách này sau khi chơi xong người ta có thể tái hiện lại bàn cờ một cách dễ dàng. Ứng với mỗi nước đi, đó chính là trạng thái của bàn cờ.
+
+VẬY THÌ NÓ LIÊN QUAN GÌ ĐẾN TRẠNG THÁI CỦA ỨNG DỤNG?
+
+Một ứng dụng web hoạt động cần dữ liệu từ phía máy chủ, thao tác của người dùng,…tổng hợp các thứ này lại ta được trạng thái của ứng dụng. Nếu biết trạng thái này, có nghĩa là tại thời điểm X ta biết được máy chủ đã trả về dữ liệu gì, người dùng đã thao tác những gì, nhập vào dữ liệu gì.
+
+VIỆC BIẾT TRẠNG THÁI NÀY CÓ QUAN TRỌNG KHÔNG?
+
+Các ứng dụng web hiện nay ngày càng phức tạp, việc biết được trạng thái này giúp cho công việc kiểm soát lỗi dễ dàng hơn, nhất là nó làm cho cách chúng ta lập trình cũng đơn giản hơn. Ví dụ, nếu bạn có một biểu mẫu mua hàng, giả sử có 5 bước: xác nhận đơn hàng, áp dụng mã khuyến mãi, điền thông tin giao hàng, thanh toán, hoàn tất. Với một ứng dụng web thông thường, nếu xảy ra lỗi ở bước 4, lập trình viên sẽ kiểm tra lại và nhập dữ liệu từ 1->4, tìm lỗi sau đó sửa lỗi, công đoạn này lặp đi lặp lại n lần!!! Nếu sử dụng Redux, mỗi công đoạn xem như một trạng thái và bạn không cần phải lặp lại bước 1->4 nữa.
+
+CÁC NGUYÊN TẮC CƠ BẢN CỦA REDUX
+
+NGUỒN DỮ LIỆU TIN CẬY DUY NHẤT
+
+Như mình đã giới thiệu cơ bản ở trên, trong quá trình hoạt động của ứng dụng, bị phụ thuộc khá nhiều yếu tố: dữ liệu từ máy chủ ban đầu, thao tác của người dùng (nhập dữ liệu, click menu, button…), dữ liệu cập nhật từ máy chủ, dữ liệu được tính toán trong ứng dụng (Ví dụ: tính toán số dư tài khoản dựa trên biến động của tỉ giá)…những yếu tố này còn gọi là nguồn dữ liệu. Những nguồn dữ liệu này đến từ những nơi khác nhau, bất kỳ khi nào, khiến cho ứng dụng của chúng ta rất khó kiểm soát, chúng tác động đến những thành phần đơn lẻ, hoặc nhiều thành phần trên ứng dụng, hoặc hiệu ứng dây chuyền. Chính vì sự phức tạp đó, là vấn đề mà Redux muốn giải quyết, tất cả các nguồn dữ liệu cần phải được quản lý và tạo thành một nguồn duy nhất, tin cậy.
+
+TRẠNG THÁI LÀ CHỈ ĐƯỢC PHÉP ĐỌC (READ-ONLY)
+
+Trạng thái của ứng dụng không được phép thay đổi “trực tiếp”, trạng thái cũng chỉ là một đối tượng thôi mà, nên việc thay đổi là được. Tuy nhiên, với Redux hay Flux thì trạng thái chỉ thay đổi khi và chỉ khi có một sự kiện xảy ra, giống như ra trận thì chỉ được phép nghe lời từ chỉ huy, mọi tin tức tình báo đều được gởi tới chỉ huy, nếu không có lệnh từ chỉ huy thì tất cả không được phép manh động.
+
+THAY ĐỔI CHỈ BẰNG HÀM THUẦN TUÝ
+
+Điều may mắn là việc sử dụng Redux js là không quá khó, việc thay đổi trạng thái của ứng dụng, được thực hiện thông qua các hàm thuần tuý. Đưa vào giá trị sự kiện, trạng thái hiện tại và hàm trả về trạng thái tiếp theo. Dù tương lai ứng dụng của bạn có thể rất lớn, nhưng các hàm reducer này thì chỉ cần nhỏ gọn thay đổi trên từng lá của cây trạng thái, và chúng hoàn toàn có thể kết hợp với nhau tạo thành chuỗi sự kiện. Ví dụ: người click vào menu (một sự kiện => thay đổi trạng thái), sau đó router cũng cần thay đổi để phù hợp với ngữ cảnh.
+
+TÍNH ỨNG DỤNG CỦA REDUX JS LÀ GÌ
+
+Theo mình thấy Redux có 3 ứng dụng quan trọng nhất:
+
+Quản lý trạng thái: như một bản replay có thể undo/redo trạng thái của ứng dụng, phải nói là “Không thể tin được”, cá nhân mình rất thích tính tin cậy của ứng dụng mà Redux mang lại.
+Tăng tốc phát triển: với webpack đã có Hot Module Replacement, khi kết hợp với Redux, tạo thành sự kết hợp ăn ý, bạn có thể viết code và debug rất dễ dàng, hãy quay lại ví dụ về biểu mẫu mua hàng 5 bước ở trên, nếu bạn không áp dụng Redux, đồng nghĩa bạn phải debug lặp đi lặp lại việc nhập dữ liệu, mà chưa chắc lỗi do code gây ra mà do dữ liệu nhập vào.
+Ứng dụng offline: tất cả các thao tác của người dùng được lưu vào một cây trạng thái, khi có kết nối Internet, cây này sẽ được đồng bộ lên server bởi một loạt các sự kiện.
+SỰ KHÁC BIỆT GIỮA REDUX VÀ FLUX
+
+Redux phát triển dựa trên Flux, nhưng đã lượt bỏ phần Dispatcher, và chỉ có duy nhất 1 store, …blah …blah, thôi nói nghe này: “Quên Flux đi“.
+Nếu bạn chưa bao giờ nghe đến Flux hay Redux, thì đừng mất thời gian để tìm hiểu: Flux là gì, Flux khác Redux như thế nào, điểm yếu của Redux js là gì? Mình cũng đã từng mất thời gian như vậy, nhưng bây giờ mình tin chỉ cần nghiên cứu Redux là đủ. Đây là các lý do để chỉ nghiên cứu “Redux js là gì“:
+
+Hiện tại Redux đã đạt ~20k stars Github khi chưa đầy 1 năm
+Ứng dụng F8 của Facebook không sử dụng Flux mà sử dụng Redux:
+Dan Abramov, người tạo ra Redux đã gia nhập Facebook từ tháng 11/2015
+KẾT
+
+Mình hi vọng qua bài “Redux js là gì” này, mình đã truyền tình yêu của mình dành cho Redux đến bạn. Cái hay của Redux là nó không phụ thuộc vào việc bạn sử dụng framework nào, nó là kiến trúc giúp cho ứng dụng phát triển nhanh, đáng tin cậy, và dễ hiểu khi làm việc nhóm. Cách người ta ghi lại nước cờ, làm cho tất cả mọi người đều dễ dàng hiểu và trình bày lại bàn cờ ra sao, thì Redux cũng như vậy!
