@@ -1,4 +1,6 @@
-﻿Hello all
+minerd --url=http://myminingpool.com:9332 --userpass=my.worker:password
+
+Hello all
 anh tạo group này cho dự án tele nhé
 hi anh, em có tổng hợp 1 số tài liệu & tutorial về React Native tại đây: https://github.com/ethan605/react-native-compilation
 Anh cho các bạn tìm hiểu trước giúp em nhé. Thứ tự sẽ là:
