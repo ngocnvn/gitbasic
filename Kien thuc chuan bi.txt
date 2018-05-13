@@ -1,4 +1,6 @@
 minerd --url=http://myminingpool.com:9332 --userpass=my.worker:password
+"url": "hk.turtlepool.space:3333",
+"user": "TRTLv3Afi4UK7k69fwC18hTiv78UbEZNAXNn53HNeYaR1sdvdFixDJbMsfnNzeVxrq2VfuATGbHax4KmEahCdfa26iP72EmmGFs", 
 
 Hello all
 anh tạo group này cho dự án tele nhé
